@@ -25,8 +25,16 @@
 //    [self dispatchGroupNotifyDemo];
 //    [self createDispatchBlock];
 //    [self dispatchBlockWaitDemo];
-    [self dispatchBlockNotifyDemo];
+//    [self dispatchBlockNotifyDemo];
 //    [self dispatchBlockCancelDemo];
+//    [self dispatchSemaphoreDemo];
+    
+    //GCD死锁
+//    [self deadLockCase1];
+//    [self deadLockCase2];
+//    [self deadLockCase3];
+//    [self deadLockCase4];
+//    [self deadLockCase5];
 }
 
 #pragma mark - GCD Demo
@@ -286,6 +294,82 @@
     dispatch_io_t channel = dispatch_io_create(DISPATCH_IO_STREAM, 0, serialQueue, ^(int error) {
         
     });
+}
+
+//dispatch_semaphore 信号量
+- (void)dispatchSemaphoreDemo {
+    //创建dispatchSemaphore
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"start");
+        [NSThread sleepForTimeInterval:1.f];
+        NSLog(@"semphore + 1");
+        dispatch_semaphore_signal(semaphore);//+1
+    });
+    
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    NSLog(@"continue");
+}
+
+//GCD死锁
+- (void)deadLockCase1 {
+    NSLog(@"1");
+    //主队列的同步线程，按照FIFO的原则（先入先出），2排在3后面会等3执行完，但因为同步线程，3又要等2执行完，相互等待成为死锁。
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        NSLog(@"2");
+    });
+//    NSLog(@"3");
+}
+
+- (void)deadLockCase2 {
+    NSLog(@"1");
+    //3会等2，因为2在全局并行队列里，不需要等待3，这样2执行完回到主队列，3就开始执行
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        NSLog(@"2");
+    });
+    NSLog(@"3");
+}
+
+- (void)deadLockCase3 {
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.fengyangcao.gcddemo.serialqueue", DISPATCH_QUEUE_SERIAL);
+    NSLog(@"1");
+    dispatch_async(serialQueue, ^{
+        NSLog(@"2");
+        //串行队列里面同步一个串行队列就会死锁
+        dispatch_sync(serialQueue, ^{
+            NSLog(@"3");
+        });
+        NSLog(@"4");
+    });
+    NSLog(@"5");
+}
+
+- (void)deadLockCase4 {
+    NSLog(@"1");
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"2");
+        //将同步的串行队列放到另外一个线程就能够解决
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"3");
+        });
+        NSLog(@"4");
+    });
+    NSLog(@"5");
+}
+
+- (void)deadLockCase5 {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"=================1");
+        NSLog(@"%@", [NSThread currentThread]);
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"%@", [NSThread currentThread]);
+            NSLog(@"=================2");
+        });
+        NSLog(@"=================3");
+    });
+    NSLog(@"1111");
+    while (1) {
+    }
 }
 
 @end
