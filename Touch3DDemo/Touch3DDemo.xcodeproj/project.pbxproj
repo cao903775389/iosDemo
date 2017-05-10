@@ -13,6 +13,7 @@
 		7A164C691E5C521200C4C356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A164C681E5C521200C4C356 /* Assets.xcassets */; };
 		7A164C6C1E5C521200C4C356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A164C6A1E5C521200C4C356 /* LaunchScreen.storyboard */; };
 		7A164C741E5D2B4500C4C356 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A164C731E5D2B4400C4C356 /* DetailViewController.swift */; };
+		7AD0E3041EB03F7C0057E6FE /* GlobalDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD0E3031EB03F7C0057E6FE /* GlobalDefine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7A164C6B1E5C521200C4C356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A164C6D1E5C521200C4C356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A164C731E5D2B4400C4C356 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7AD0E3031EB03F7C0057E6FE /* GlobalDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDefine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		7A164C601E5C521200C4C356 /* Touch3DDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7AD0E3031EB03F7C0057E6FE /* GlobalDefine.swift */,
 				7A164C611E5C521200C4C356 /* AppDelegate.swift */,
 				7A164C631E5C521200C4C356 /* ViewController.swift */,
 				7A164C731E5D2B4400C4C356 /* DetailViewController.swift */,
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A164C741E5D2B4500C4C356 /* DetailViewController.swift in Sources */,
+				7AD0E3041EB03F7C0057E6FE /* GlobalDefine.swift in Sources */,
 				7A164C641E5C521200C4C356 /* ViewController.swift in Sources */,
 				7A164C621E5C521200C4C356 /* AppDelegate.swift in Sources */,
 			);
@@ -306,6 +310,7 @@
 				7A164C721E5C521200C4C356 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

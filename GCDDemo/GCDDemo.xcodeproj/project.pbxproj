@@ -13,6 +13,8 @@
 		7A0973711E4AFF25003867AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A0973701E4AFF25003867AF /* Assets.xcassets */; };
 		7A0973741E4AFF25003867AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0973721E4AFF25003867AF /* LaunchScreen.storyboard */; };
 		7A09737E1E4B1344003867AF /* GCDObjcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A09737D1E4B1344003867AF /* GCDObjcViewController.m */; };
+		7A09B6D61EB9BDB400D62529 /* AnimationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A09B6D51EB9BDB400D62529 /* AnimationOperation.swift */; };
+		7A3DA6851EBB16F800F0539B /* AnimationViewOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DA6841EBB16F800F0539B /* AnimationViewOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		7A09737B1E4B1343003867AF /* GCDDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GCDDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		7A09737C1E4B1344003867AF /* GCDObjcViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDObjcViewController.h; sourceTree = "<group>"; };
 		7A09737D1E4B1344003867AF /* GCDObjcViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDObjcViewController.m; sourceTree = "<group>"; };
+		7A09B6D51EB9BDB400D62529 /* AnimationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationOperation.swift; sourceTree = "<group>"; };
+		7A3DA6831EBB16F800F0539B /* AnimationViewOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationViewOperation.h; sourceTree = "<group>"; };
+		7A3DA6841EBB16F800F0539B /* AnimationViewOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationViewOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,9 @@
 			children = (
 				7A0973691E4AFF25003867AF /* AppDelegate.swift */,
 				7A09736B1E4AFF25003867AF /* ViewController.swift */,
+				7A09B6D51EB9BDB400D62529 /* AnimationOperation.swift */,
+				7A3DA6831EBB16F800F0539B /* AnimationViewOperation.h */,
+				7A3DA6841EBB16F800F0539B /* AnimationViewOperation.m */,
 				7A09737C1E4B1344003867AF /* GCDObjcViewController.h */,
 				7A09737D1E4B1344003867AF /* GCDObjcViewController.m */,
 				7A09736D1E4AFF25003867AF /* Main.storyboard */,
@@ -145,6 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A09B6D61EB9BDB400D62529 /* AnimationOperation.swift in Sources */,
+				7A3DA6851EBB16F800F0539B /* AnimationViewOperation.m in Sources */,
 				7A09736C1E4AFF25003867AF /* ViewController.swift in Sources */,
 				7A09737E1E4B1344003867AF /* GCDObjcViewController.m in Sources */,
 				7A09736A1E4AFF25003867AF /* AppDelegate.swift in Sources */,
@@ -316,6 +326,7 @@
 				7A09737A1E4AFF25003867AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

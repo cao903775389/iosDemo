@@ -8,7 +8,64 @@
 
 import UIKit
 
+protocol TestPro: class {
+    
+    func test1()
+    
+    func test2()
+}
+
+extension TestPro {
+    
+    func test1() {
+        print("1执行了")
+    }
+    
+    func test2() {
+        print("2执行了")
+    }
+}
+
+class Request {
+    
+    weak var delegate: TestPro?
+    
+    init() {
+        
+    }
+}
+
+class ClassOne: TestPro {
+    func test1() {
+        print("class one test1 执行")
+    }
+}
+
+class ClassTwo: ClassOne {
+    
+//     override func test1() {
+//        print("class two test1 执行")
+//    }
+//    
+//     func test2() {
+//        print("class two test2 执行")
+//    }
+}
+
+class ClassThree: ClassTwo {
+    
+    override func test1() {
+        print("class three test1 执行")
+    }
+    
+    func test2() {
+        print("class three test2 执行")
+    }
+}
+
+
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -16,6 +73,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let classTwo = ClassThree()
+        
+        let r = Request()
+        r.delegate = classTwo
+        
+        r.delegate?.test1()
+        
+        
         return true
     }
 
